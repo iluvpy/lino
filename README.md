@@ -15,3 +15,5 @@ use during chess games
 - find simple mates
 - showcase week pieces
 - warn player when weakening pieces 
+- settings
+- customize chess.com look 

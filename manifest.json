@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "lino chess",
+    "description": "Chess board analyzer that helps you play chess",
+    "version": "0.0.1",
+    "icons": {
+      "16": "images/chess16.png",
+      "32": "images/chess32.png",
+      "48": "images/chess48.png",
+      "128": "images/chess128.png"
+    },
+    "content_scripts": [
+      {
+        "js": [
+          "src/index.js"
+        ],
+        "css": [
+            "static/style.css"
+        ],
+
+        "matches": [
+          "https://www.chess.com/*"
+        ]
+      }
+    ]
+  }
