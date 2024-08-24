@@ -1,5 +1,3 @@
-
-
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -13,5 +11,3 @@ function getRandomHex(length) {
     }
     return hex;
 }
-
-export { getRandomInt, getRandomHex };

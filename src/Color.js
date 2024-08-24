@@ -1,8 +1,5 @@
 
-export default class Color {
-    r: number
-    g: number
-    b: number
+class Color {
     constructor(r, g, b) {
         this.r = r;
         this.g = g;

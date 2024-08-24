@@ -1,18 +1,5 @@
 {
-  "name": "lino",
-  "version": "1.0.0",
-  "description": "Web Extension that adds helping functionality on chess.com, lino will be able to analyze the current game showcase extra     information regarding the board. Note: lino won't be an engine, nor will it ever be able to beat good players. It shouldn't be used regularly either or in important games (low elo tournaments).",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc ./src/index.ts --outFile ./dist/bundle.js --module ES6"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.5.4",
-    "webpack": "^5.93.0",
-    "webpack-cli": "^5.1.4"
+  "dependencies": {
+    "@types/node": "^22.4.2"
   }
 }

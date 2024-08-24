@@ -1,15 +1,5 @@
-import {
-    DefaultHighlightedSquareDiv,
-    HDivColorPlaceholder,
-    SqNumPlaceholder,
-    DivIDPlaceHolder
-} from "./constants.ts";
 
-import { getRandomHex } from "./util.ts";
-
-export default class BoardRenderer {
-    board: HTMLElement | null
-    boardFound: boolean
+class BoardRenderer {
     constructor() {
         this.board = document.querySelector(".board");
         this.boardFound = this.board !== undefined;
@@ -32,14 +22,14 @@ export default class BoardRenderer {
         let id = getRandomHex(5);
         let html = this.getHighlightDivHTML(x, y, color, id);
         if (this.boardFound) {
-            this.board!.insertAdjacentHTML("afterbegin", html);
+            this.board.insertAdjacentHTML("afterbegin", html);
         }
         return id;
     }
 
     removeHighlight(id) {
         try {
-            let element = document!.getElementById(id)!.remove();
+            document.getElementById(id).remove();
         } catch {}
     }
 

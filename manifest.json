@@ -16,7 +16,7 @@
         ],
 
         "js": [
-            "dist/app.min.js"
+            "dist/bundle.js"
         ],
          "matches": [
           "https://www.chess.com/*"

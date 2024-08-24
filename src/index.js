@@ -1,6 +1,4 @@
-import BoardRenderer from "./BoardRenderer.ts";
-import Color from "./Color.ts";
-import { getRandomInt } from "./util.ts";
+
 
 window.onload = () => {
     let find_board = document.querySelector(".board");
@@ -17,8 +15,10 @@ window.onload = () => {
             let id = bRenderer.addHighlight(x, y, color);
             if (lastId === "") {
                 lastId = id;
-            } else {
+            }
+            if (lastId != id){
                 bRenderer.removeHighlight(lastId);
+                lastId = id;
             }
         })
     }
