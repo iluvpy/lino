@@ -1,11 +1,10 @@
 
 
-class BoardState {
-    
-}
 
-window.onload = () => {
+window.onload = async () => {
     let find_board = document.querySelector(".board");
+    let bState = new BoardState();
+  
     console.log("Lino is running!!");
     if (find_board !== undefined) {
         let lastId = "";
@@ -25,6 +24,11 @@ window.onload = () => {
                 lastId = id;
             }
         })
+    }
+
+    while (1) {
+        await sleep(100);
+        bState.updateState();
     }
 }
 

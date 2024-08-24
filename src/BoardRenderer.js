@@ -10,7 +10,7 @@ class BoardRenderer {
             DivIDPlaceHolder, id  // replacing placeholder in raw html with id 
         ).replace(
             SqNumPlaceholder, // replacing coordinates
-            `${x+1}${y+1}`   
+            `${x+1}${8-(y+1)}`   
         ).replace(
             HDivColorPlaceholder, // replacing color
             color.getStringRGB()
