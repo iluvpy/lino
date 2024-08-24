@@ -1,5 +1,9 @@
 
 
+class BoardState {
+    
+}
+
 window.onload = () => {
     let find_board = document.querySelector(".board");
     console.log("Lino is running!!");
