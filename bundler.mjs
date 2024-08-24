@@ -16,7 +16,7 @@ function src(fileName) {
 
 function addToBundle(path) {
     let content = readFileSync(path);
-    bundledJS += "\n" + content;
+    bundledJS += `//-----------${path.split("/")[2]}-----------` + "\n" + content;
 } 
 
 // add files in terms of priority ()
