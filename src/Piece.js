@@ -36,7 +36,6 @@ class Piece {
     constructor(pieceCode, x, y) {
         this.pieceCode = pieceCode;
         this.white = pieceCode[0] === "w";
-        this.
         this.x = x;
         this.y = y;
     }
