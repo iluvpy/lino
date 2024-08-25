@@ -1,13 +1,16 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { exit } from "process";
+import { exec } from "child_process";
 
 const SRC_PATH = "./src/";
-const START_FILE = "./";
-const BUNDLE_PATH = "./dist/bundle.js";
-var bundledJS = "";
+const OUTFILE = "bundle.js";
+const OUTDIR = "./dist/";
+const BUNDLE_PATH = `${OUTDIR}${OUTFILE}`;
+const PRODUCTION = false;
+var bundledJSContent = "";
 
 function src(fileName) {
-    let srcPath = "./src/" + fileName
+    let srcPath = SRC_PATH + fileName
     if (existsSync(srcPath)) return srcPath;
     console.error(`Couldn't find ${srcPath}`);
     exit();
@@ -23,7 +26,7 @@ function addToBundle(path) {
     let content = readFileSync(path);
     let fileName = getFileName(path);
     console.log(`adding ${fileName}...`);
-    bundledJS += `\n//-----------${fileName}-----------\n` + content;
+    bundledJSContent += `\n//-----------${fileName}-----------\n` + content;
 } 
 
 // add files in terms of priority ()
@@ -34,4 +37,14 @@ addToBundle(src("BoardRenderer.js"));
 addToBundle(src("BoardState.js"));
 addToBundle(src("app.js"));
 
-writeFileSync(BUNDLE_PATH, bundledJS);
+writeFileSync(BUNDLE_PATH, bundledJSContent);
+
+console.log("minifiyng..");
+exec(`npx uglify-js ${BUNDLE_PATH} -c -m -o ${OUTDIR}/bundle.min.js`, (err, stdout, stderr) => {
+    if (err) {
+        // node couldn't execute the command
+        console.log("error occured trying to run uglify js: ");
+        console.log(err);
+        return;
+    }    
+});
