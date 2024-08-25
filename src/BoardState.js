@@ -1,18 +1,3 @@
-
-class Piece {
-    constructor(pieceCode, x, y) {
-        this.pieceCode = pieceCode;
-        this.x = x;
-        this.y = y;
-    }
-
-    // returns position in the chess.com square-xy notation 
-    getPieceXYClass() {
-        return `square-${x+1}${8-y}`;
-    }
-} 
-
-
 class BoardState {
     constructor() {
         this.boardState = new Array(8);

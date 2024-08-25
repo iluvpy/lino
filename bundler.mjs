@@ -33,8 +33,10 @@ function addToBundle(path) {
 addToBundle(src("constants.js"));
 addToBundle(src("util.js"));
 addToBundle(src("Color.js"));
+addToBundle(src("Piece.js"));
 addToBundle(src("BoardRenderer.js"));
 addToBundle(src("BoardState.js"));
+addToBundle(src("BoardHandler.js"));
 addToBundle(src("app.js"));
 
 writeFileSync(BUNDLE_PATH, bundledJSContent);
