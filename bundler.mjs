@@ -40,7 +40,7 @@ addToBundle(src("app.js"));
 writeFileSync(BUNDLE_PATH, bundledJSContent);
 
 console.log("minifiyng..");
-exec(`npx uglify-js ${BUNDLE_PATH} -c -m -o ${OUTDIR}/bundle.min.js`, (err, stdout, stderr) => {
+exec(`npx uglify-js ${BUNDLE_PATH} -c -o ${OUTDIR}/bundle.min.js`, (err, stdout, stderr) => {
     if (err) {
         // node couldn't execute the command
         console.log("error occured trying to run uglify js: ");

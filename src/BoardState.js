@@ -1,11 +1,15 @@
 
 class Piece {
-    constructor(pieceCode, position) {
+    constructor(pieceCode, x, y) {
         this.pieceCode = pieceCode;
-        this.position = position;
+        this.x = x;
+        this.y = y;
     }
 
-
+    // returns position in the chess.com square-xy notation 
+    getPieceXYClass() {
+        return `square-${x+1}${8-y}`;
+    }
 } 
 
 
@@ -18,19 +22,36 @@ class BoardState {
         }
     }
 
+    getPieceFromDiv(div) {
+        let classList = div.classList;
+        if (classList.length > 3) return;
+
+        let pieceCode = undefined;
+        let x = undefined;
+        let y = undefined;
+        for (let cl of classList) {
+            if (cl.length == 2) {
+                pieceCode = cl;
+            }
+            else if (cl !== "piece") {
+                let coords = cl.split("-")[1];
+                x = coords[0] - 1;
+                y = 8 - coords[1];
+            }
+        }
+
+        return new Piece(pieceCode, x, y);
+    }
+
     updateState() {
         let pieces = document.getElementsByClassName("piece");
-        for (var piece of pieces) {
-            let classList = piece.classList;
-            if (classList[0].includes("hover")) continue;
-            let square = classList[classList.length-1];
-            let pieceCode = classList[classList.length-2];
-            let squareNumber = square.split("-")[1];
-            let squarePos = Array.from(squareNumber).map((v) => Number(v));
-            this.boardState[8-squarePos[1]][squarePos[0]] = new Piece(pieceCode, squarePos);
+        for (var pieceDiv of pieces) {
+            let piece = this.getPieceFromDiv(pieceDiv);
+            if (piece !== undefined) {
+                this.boardState[piece.y][piece.x] = piece;
+            }
 
         }
-        console.log(this.boardState);
     }
 }
 
