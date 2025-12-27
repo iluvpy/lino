@@ -1,3 +1,5 @@
+import { Piece } from "./Piece.js";
+
 class BoardState {
     constructor() {
         this.boardState = new Array(8);
@@ -40,3 +42,4 @@ class BoardState {
     }
 }
 
+export { BoardState };

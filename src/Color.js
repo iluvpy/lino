@@ -9,4 +9,6 @@ class Color {
     getStringRGB() {
         return `rgb(${this.r},${this.g},${this.b})`;
     }
-} 
+}
+
+export { Color };

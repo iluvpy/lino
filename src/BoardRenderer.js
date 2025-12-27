@@ -1,3 +1,12 @@
+// import constants
+import { 
+    SqNumPlaceholder, 
+    HDivColorPlaceholder, 
+    DivIDPlaceHolder, 
+    DefaultHighlightedSquareDiv 
+} from "./constants.js";
+import { getRandomHex } from "./util.js";
+import { Color } from "./Color.js";
 
 class BoardRenderer {
     constructor() {

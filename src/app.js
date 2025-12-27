@@ -1,3 +1,9 @@
+import { BoardState } from "./BoardState.js";
+import { BoardRenderer } from "./BoardRenderer.js";
+import { Piece } from "./Piece.js";
+import { sleep } from "./util.js";
+import { BoardHandler } from "./BoardHandler.js";
+
 class LinoApp {
     constructor() {
         this.board = document.querySelector(".board");

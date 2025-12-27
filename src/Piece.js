@@ -45,4 +45,6 @@ class Piece {
     getPieceXYClass() {
         return `square-${x+1}${8-y}`;
     }
-} 
+}
+
+export { Piece, PIECE_ATTRIBUTES }; 
