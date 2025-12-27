@@ -7,6 +7,6 @@
     "uglify-js": "^3.19.2"
   },
   "scripts": {
-    "build": "esbuild src/app.js --outfile=dist/bundle.js --minify --sourcemap --target=chrome58,firefox57,safari11,edge16"
+    "build": "esbuild src/app.js --outfile=dist/bundle.js --minify --sourcemap --bundle --platform=browser"
   }
 }
